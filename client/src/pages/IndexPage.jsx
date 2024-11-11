@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AlertCircle, MapPin,  Star } from 'lucide-react';
+import { AlertCircle, MapPin, Star } from 'lucide-react';
 
 export const IndexPage = () => {
   const [places, setPlaces] = useState([]);
@@ -11,7 +11,7 @@ export const IndexPage = () => {
     const fetchPlaces = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:4000/places', {
+        const response = await fetch('https://fullstack-bookingapp.onrender.com/places', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -24,7 +24,8 @@ export const IndexPage = () => {
         }
 
         const data = await response.json();
-        setPlaces(Array.isArray(data) ? [...data, ...data, ...data] : []);
+        // Just use the original data without duplication
+        setPlaces(Array.isArray(data) ? data : []);
       } catch (err) {
         setError(err.message || 'Failed to load places. Please try again.');
       } finally {
@@ -39,7 +40,7 @@ export const IndexPage = () => {
     return (
       <div className="grid gap-6 gap-y-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {[...Array(8)].map((_, index) => (
-          <div key={index} className="bg-white rounded-xl overflow-hidden animate-pulse">
+          <div key={`skeleton-${index}`} className="bg-white rounded-xl overflow-hidden animate-pulse">
             <div className="aspect-[4/3] bg-gray-200" />
             <div className="p-4">
               <div className="h-4 bg-gray-200 rounded w-3/4 mb-3" />
@@ -82,7 +83,7 @@ export const IndexPage = () => {
             {place.photos?.[0] ? (
               <img 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                src={'http://localhost:4000/uploads/' + place.photos[0]} 
+                src={'https://fullstack-bookingapp.onrender.com/uploads/' + place.photos[0]} 
                 alt={place.title}
                 onError={(e) => {
                   e.target.src = "/api/placeholder/400/300";
@@ -97,7 +98,10 @@ export const IndexPage = () => {
               />
             )}
             <div className="absolute top-3 right-3">
-              <button className="p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-200 group">
+              <button 
+                className="p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-200 group"
+                aria-label="Add to favorites"
+              >
                 <svg 
                   viewBox="0 0 32 32" 
                   className="h-5 w-5 fill-none stroke-gray-600 stroke-2 group-hover:stroke-pink-600"
