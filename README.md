@@ -20,8 +20,8 @@ Ever dreamed of finding the perfect getaway spot with just a few clicks? StaySca
 - **Easy Listing Management** - Add, edit, and manage your properties effortlessly
 - **Photo Upload** - Multiple ways to upload, including direct upload and URL
 - **Booking Control** - Set your own rules, prices, and availability
-- **Guest Management** - Keep track of your guests and communications
-- **Secure Payments** - Reliable and secure payment processing
+
+
 
 ## 🚀 Tech Stack
 
@@ -41,7 +41,7 @@ Security: bcrypt
 
 1. **Clone the repository**
 ```bash
-git clone [your-repo-link]
+git clone 
 cd stayscape
 ```
 
@@ -95,20 +95,6 @@ We love contributions! If you have suggestions or want to contribute code, pleas
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 🌟 Coming Soon
-
-- 📱 Mobile application
-- 🗺 Interactive maps integration
-- 💬 Real-time chat between hosts and guests
-- ⭐ Enhanced review system
-- 📊 Advanced analytics for hosts
-
-## 📫 Support
-
-Having issues? We're here to help!
-- 📧 Email: support@stayscape.com
-- 💬 Discord: [Join our community](#)
-- 📚 Documentation: [View full docs](#)
 
 ## 📜 License
 
