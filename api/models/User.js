@@ -11,3 +11,4 @@ const UserModel = mongoose.model('User', UserSchema);
 
 module.exports = UserModel;
 
+//now we will import this data into index js file 
