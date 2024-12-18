@@ -5,6 +5,7 @@ import { Search, Menu, User, LogOut, Heart, Home, Settings, HelpCircle, Bell } f
 
 export const Header = () => {
   const { user } = useContext(UserContext);
+  console.log('first user ',user)
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);

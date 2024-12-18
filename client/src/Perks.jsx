@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 const Perks = ({ selected = [], onChange = () => {} }) => {
-  // Define perks data array to make maintenance easier
   const perksData = [
     {
       name: "wifi",

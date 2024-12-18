@@ -11,6 +11,7 @@ export const PlacePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  console.log(place)
 
   useEffect(() => {
     const fetchPlaceData = async () => {

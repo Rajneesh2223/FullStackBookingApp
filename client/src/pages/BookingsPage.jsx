@@ -9,21 +9,26 @@ export const BookingsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get('/bookings');
-        setBookings(response.data);
-      } catch (err) {
-        setError('Failed to load bookings. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
+ useEffect(() => {
+  const fetchBookings = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('token'); // or wherever you store your token
+      const response = await axios.get('bookings', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      setBookings(response.data);
+    } catch (err) {
+      setError('Failed to load bookings. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchBookings();
-  }, []);
+  fetchBookings();
+}, []);
 
   const formatDate = (dateStr) => {
     return new Date(dateStr).toLocaleDateString('en-US', {

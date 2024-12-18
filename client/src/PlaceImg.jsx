@@ -3,7 +3,7 @@ import Image from "./Image.jsx";
 
 export default function PlaceImg({ place, index = 0, className = null }) {
   if (!place?.photos?.length) {
-    return null;  // Return null instead of an empty string for React components
+    return null;  
   }
 
   className = className || 'object-cover';

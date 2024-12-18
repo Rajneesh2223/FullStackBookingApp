@@ -5,6 +5,8 @@ import { X, ImageIcon } from 'lucide-react';
 
 export const PlaceGallery = ({ place }) => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  console.log(showAllPhotos)
+  console.log('/placegallery image',place.photos)
 
   if (!place) return null;
 
