@@ -36,7 +36,7 @@ app.use('/uploads', express.static(uploadsDir));
 // CORS Configuration
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:5173'
+  origin: '*'
 }));
 
 // Helper Functions
