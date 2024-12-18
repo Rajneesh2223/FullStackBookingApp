@@ -4,6 +4,8 @@ import PlaceImg from '../PlaceImg';
 import axios from 'axios';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
+
 export const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ export const BookingsPage = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token'); // or wherever you store your token
-      const response = await axios.get('bookings', {
+      const response = await axios.get(`${BACKEND_URL}/bookings`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
