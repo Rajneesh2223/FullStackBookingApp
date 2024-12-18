@@ -4,7 +4,7 @@ export default function Image({ src, ...rest }) {
   // Ensure src starts with the base URL if it's not already a full URL
   src = src && (src.startsWith('http://') || src.startsWith('https://')) 
     ? src 
-    : `http://localhost:4000/uploads/${src}`;
+    : `/uploads/${src}`;
 
   console.log('Image URL:', src);
 

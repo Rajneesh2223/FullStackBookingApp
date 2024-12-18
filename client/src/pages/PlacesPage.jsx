@@ -56,7 +56,7 @@ export const PlacesPage = () => {
                 <div className="relative aspect-video">
                   {place.photos?.[0] && (
                     <img
-                      src={`http://localhost:4000/uploads/${place.photos[0]}`}
+                      src={`/uploads/${place.photos[0]}`}
                       alt={place.title}
                       className="object-cover w-full h-full"
                     />

@@ -18,7 +18,7 @@ export const PlacePage = () => {
       if (!id) return;
       try {
         setLoading(true);
-        const response = await fetch(`https://fullstack-bookingapp.onrender.com/places/${id}`);
+        const response = await fetch(`/places/${id}`);
         if (!response.ok) throw new Error('Failed to fetch place details');
         const data = await response.json();
         setPlace(data);
