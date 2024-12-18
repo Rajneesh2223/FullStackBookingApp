@@ -36,7 +36,7 @@ app.use('/uploads', express.static(uploadsDir));
 // CORS Configuration
 app.use(cors({
   credentials: true,
-  origin: '*'
+  origin: 'https://graceful-dasik-f2b0d5.netlify.app/'
 }));
 
 // Helper Functions
