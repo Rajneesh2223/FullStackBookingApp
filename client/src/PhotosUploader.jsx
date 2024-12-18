@@ -3,13 +3,15 @@ import axios from "axios";
 import Image from "./Image.jsx";
 import PropTypes from 'prop-types';
 
+
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
 export default function PhotosUploader({addedPhotos, onChange}) {
   const [photoLink, setPhotoLink] = useState('');
 
   async function addPhotoByLink(ev) {
     ev.preventDefault();
     try {
-      const {data: filename} = await axios.post('/upload-by-link', {link: photoLink});
+      const {data: filename} = await axios.post(`${BACKEND_URL}/upload-by-link`, {link: photoLink});
       onChange(prev => [...prev, filename]);
       setPhotoLink('');
     } catch (error) {
@@ -26,7 +28,7 @@ export default function PhotosUploader({addedPhotos, onChange}) {
     }
     
     try {
-      const {data: filenames} = await axios.post('/upload', data, {
+      const {data: filenames} = await axios.post(`${BACKEND_URL}/upload`, data, {
         headers: {'Content-type':'multipart/form-data'}
       });
       onChange(prev => [...prev, ...filenames]);

@@ -2,6 +2,8 @@ import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
 export const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,7 +13,7 @@ export const RegisterPage = () => {
     ev.preventDefault();
 
     try{
-        await axios.post('/register',{
+        await axios.post(`${BACKEND_URL}/register`,{
             name,
             email,
             password,

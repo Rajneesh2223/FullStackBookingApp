@@ -5,6 +5,7 @@ import { BookingsWidget } from '../BookingsWidget';
 import { PlaceGallery } from '../PlaceGallery';
 import { AddressLink } from '../AddressLink';
 
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
 export const PlacePage = () => {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
@@ -18,7 +19,7 @@ export const PlacePage = () => {
       if (!id) return;
       try {
         setLoading(true);
-        const response = await fetch(`/places/${id}`);
+        const response = await fetch(`${BACKEND_URL}/places/${id}`);
         if (!response.ok) throw new Error('Failed to fetch place details');
         const data = await response.json();
         setPlace(data);

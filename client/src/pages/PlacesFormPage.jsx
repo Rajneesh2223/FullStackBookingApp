@@ -6,6 +6,8 @@ import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {  Loader2, MapPin } from 'lucide-react';
 
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
+
 export const PlacesFormPage = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
@@ -28,7 +30,7 @@ export const PlacesFormPage = () => {
     const fetchPlace = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get('/places/' + id);
+        const { data } = await axios.get(`${BACKEND_URL}/places/` + id);
         setTitle(data.title);
         setAddress(data.address);
         setAddedPhotos(data.addedPhotos || []); // Add fallback empty array

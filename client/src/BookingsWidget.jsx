@@ -5,6 +5,8 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../UserContext.jsx';
 
+
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
 export const BookingsWidget = ({ place }) => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
@@ -27,7 +29,7 @@ export const BookingsWidget = ({ place }) => {
 
   async function bookThisPlace() {
     try {
-      const response = await axios.post(`/bookings`, {
+      const response = await axios.post(`${BACKEND_URL}/bookings`, {
         checkIn,
         checkOut,
         numberOfGuests,

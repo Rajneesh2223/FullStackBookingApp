@@ -6,13 +6,15 @@ import { PlaceGallery } from "../PlaceGallery";
 import BookingDates from "../BookingDates";
 import { Calendar,  CreditCard, Home, Clock, DollarSign } from "lucide-react";
 
+
+const BACKEND_URL = 'https://fullstackbookingapp.onrender.com';
 export default function BookingPage() {
   const { id } = useParams();
   const [booking, setBooking] = useState(null);
   
   useEffect(() => {
     if (id) {
-      axios.get('/bookings').then(response => {
+      axios.get(`${BACKEND_URL}/bookings`).then(response => {
         const foundBooking = response.data.find(({_id}) => _id === id);
         if (foundBooking) {
           setBooking(foundBooking);
